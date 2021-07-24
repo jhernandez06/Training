@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif ;
+    box-sizing: border-box;
+}
+
+.container{
+    margin: 0 auto;
+    padding: 10px 40px;
+    width: 960px;
+    height: auto; 
+    border: 3px solid black;
+}
+
+.borde{
+    border: 3px solid black;
+}
+
+.text{
+    padding: 10px 0 5px 0;
+text-align: center;
+margin: 10px;
+
+}
+ 
+.header{
+    
+
+    margin-bottom: 10px;
+
+}
+.header p{
+    text-align: center;
+    padding: 20px 0px;
+
+}
+
+.section{
+    height: 400px;
+    margin: 20px 0;
+}
+
+.textInto{
+    text-align: center;
+    padding: 17px 0px;
+}
+
+
+
+
+.intoContent{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 8px;
+}
+
+.gradiente{
+    background: linear-gradient(to bottom, #b6b6b6, #FFFFFF);
+}
+.textDynamic{
+    text-align: center;
+    padding: 25px 0px 10px 0;
+}
+.dynamicContent{
+    padding: 5px 12px 10px  12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr      ;
+}
+
+.colum{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:  0px 8px;
+    border: 3px dashed black;
+    height: 330px;
+}
+
+
+.columDynamic{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:  0px 10px;
+    border: 3px dashed black;
+    height: 320px
+}
+
+.colum3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 10px 10px; 
+    border: 3px dashed black;
+    border-right: none;
+    height: 330px;
+    
+}
+
+.textFooter{
+    text-align: center;
+    padding: 18px 0px;
+}

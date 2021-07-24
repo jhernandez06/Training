@@ -1,0 +1,18 @@
+.height-uno{
+    max-height: 450px;
+}
+.height-dos{
+    max-height: 300px;
+}
+.img-testimoials{
+    max-width: 10rem;
+}
+.f-small{
+    font-size: small;
+}
+.f-x-small{
+    font-size: x-small;
+}
+.f-smaller{
+    font-size: smaller;
+}
