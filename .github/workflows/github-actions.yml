@@ -9,4 +9,4 @@
         - name: instalar milo
           run: curl -sf https://gobinaries.com/wawandco/milo/cmd/milo | sh
         - name: ejecutar milo
-          run: milo review Asignacion3
+          run: milo review .
