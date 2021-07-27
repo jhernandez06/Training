@@ -1,0 +1,41 @@
+body{
+    font-family: Helvetica;
+    background-color: #E6E6E6;
+}
+.width-container{
+    max-width: 600px;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+}
+.title-color{
+    color: #787878;
+}
+.info-text{
+    color: #787878;
+    border-color: #E6E6E6;
+    font-weight: lighter;
+}
+.button-change{
+    color: #46B02C;
+    border-color: #46B02C;
+    font-size: x-small;
+}
+.button-send{
+    background-color: #46B02C;
+    color: white;
+    width: 100%; 
+}
+.space-result{
+    background-color: #FCF9D7;
+}
+.span{
+ color: #46B02C;
+}
+.bad-request{
+    border: 1px solid #C65353;
+    color: #C65353;
+    border-radius: 4px;
+}
