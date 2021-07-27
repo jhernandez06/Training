@@ -1,6 +1,7 @@
 
 var layout = document.getElementById('layout');
 var changeLayout = document.getElementById('button-change');
+var send = document.getElementById('button-send');
 var badRequest = document.getElementById('bad-request');
 var formulario = document.forms['layout'];
 var hours = formulario['hours'];
@@ -17,6 +18,9 @@ function removeBadRequest(){
 }
 changeLayout.addEventListener('click', function(){
     toggleFlex();
+})
+send.addEventListener('click', function(){
+    getAngle();
 })
 
 function getAngle(){
@@ -50,6 +54,9 @@ function getAngle(){
             angle = angleMinutes;
         }else {
             angle = angleHours - angleMinutes;
+            if(angle < 0){
+                angle = angle * (-1);
+            }
         }
         document.getElementById('angle').innerHTML = `${angle}º`;
     }
