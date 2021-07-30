@@ -1,4 +1,4 @@
-module api-rest-medals
+module olympic-medals-table
 
 go 1.16
 
