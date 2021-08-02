@@ -1,40 +1,21 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
-	"olympic-medals-table/models"
+	"olympic-medals-table/actions"
+	"olympic-medals-table/api"
 	"time"
 
 	"github.com/gorilla/mux"
 )
 
-func indexRoute(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to my API")
-}
-func getCountrys(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-type", "application/json")
-	json.NewEncoder(w).Encode(models.AllCountrys)
-}
-
 func main() {
 
 	r := mux.NewRouter().StrictSlash(true)
-	//r.HandleFunc("/", indexRoute)
-	r.HandleFunc("/countrys", getCountrys).Methods("GET")
-
-	r.PathPrefix("/web-server/public/").Handler(http.StripPrefix("/web-server/public/", http.FileServer(http.Dir("./web-server/public"))))
-	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		file, err := ioutil.ReadFile("web-server/public/index.html")
-		if err != nil {
-			panic(err)
-		}
-		w.Write(file)
-	})
-	fmt.Println("Runing...")
+	r.HandleFunc("/api/countries", api.GetCountries).Methods("GET")
+	r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("./public"))))
+	r.HandleFunc("/", actions.FileServer)
 
 	server := &http.Server{
 		Addr:           ":3000",
