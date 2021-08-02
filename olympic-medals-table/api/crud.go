@@ -3,16 +3,17 @@ package api
 import (
 	"encoding/json"
 	"net/http"
+	"olympic-medals-table/models"
 )
 
 func GetCountries(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-type", "application/json")
-	position()
+	models.Position()
 
-	for i := 0; i < len(allCountries); i++ {
-		allCountries[i].AllMedals = allCountries[i].GoldMedals +
-			allCountries[i].SilverMedals + allCountries[i].BronzeMedals
-		allCountries[i].Position = i + 1
+	for i := 0; i < len(models.AllCountries); i++ {
+		models.AllCountries[i].AllMedals = models.AllCountries[i].GoldMedals +
+			models.AllCountries[i].SilverMedals + models.AllCountries[i].BronzeMedals
+		models.AllCountries[i].Position = i + 1
 	}
-	json.NewEncoder(w).Encode(allCountries)
+	json.NewEncoder(w).Encode(models.AllCountries)
 }
