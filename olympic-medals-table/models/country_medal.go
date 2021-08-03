@@ -1,8 +1,13 @@
 package models
 
-import "sort"
+import (
+	"sort"
 
-type countryMedal struct {
+	"gorm.io/gorm"
+)
+
+type CountryMedal struct {
+	gorm.Model
 	Position     int
 	Country      string
 	GoldMedals   int64
@@ -11,7 +16,7 @@ type countryMedal struct {
 	AllMedals    int64
 }
 
-var AllCountries = []countryMedal{
+var AllCountries = []CountryMedal{
 	{
 
 		Country:      "China",
@@ -81,18 +86,24 @@ var AllCountries = []countryMedal{
 		SilverMedals: 10,
 		BronzeMedals: 14,
 	},
+	{
+		Country:      "Colombia",
+		GoldMedals:   30,
+		SilverMedals: 10,
+		BronzeMedals: 14,
+	},
 }
 
 //Position
-type lessFunc func(p1, p2 *countryMedal) bool
+type lessFunc func(p1, p2 *CountryMedal) bool
 
 type multiSorter struct {
-	allCountries []countryMedal
+	allCountries []CountryMedal
 	less         []lessFunc
 }
 
 // Sort sorts the argument slice according to the less functions passed to OrderedBy.
-func (ms *multiSorter) Sort(allCountries []countryMedal) {
+func (ms *multiSorter) Sort(allCountries []CountryMedal) {
 	ms.allCountries = allCountries
 	sort.Sort(ms)
 }
@@ -136,13 +147,13 @@ func (ms *multiSorter) Less(i, j int) bool {
 
 func Position() {
 	// Closures that order the Change structure.
-	gold := func(c1, c2 *countryMedal) bool {
+	gold := func(c1, c2 *CountryMedal) bool {
 		return c1.GoldMedals > c2.GoldMedals
 	}
-	silver := func(c1, c2 *countryMedal) bool {
+	silver := func(c1, c2 *CountryMedal) bool {
 		return c1.SilverMedals > c2.SilverMedals
 	}
-	bronze := func(c1, c2 *countryMedal) bool {
+	bronze := func(c1, c2 *CountryMedal) bool {
 		return c1.BronzeMedals > c2.BronzeMedals
 	}
 
